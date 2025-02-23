@@ -6,7 +6,7 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 20;
-    private int currentHealth;
+    public static int currentHealth;
     private Vector3 respawnPoint;
     private bool isDead = false;
 
@@ -77,5 +77,9 @@ public class PlayerHealth : MonoBehaviour
         {
             healthText.text = "Health: " + currentHealth;
         }
+    }
+
+    public void restart(){
+        currentHealth = maxHealth;
     }
 }
