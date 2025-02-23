@@ -7,7 +7,7 @@ public class FinanceGuy : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float moveSpeed = 2f;
-    private Vector2 movement;
+    public Vector2 movement;
 
     private int score = 0; // Track the number of files collected
     public Text scoreText; // Reference to the Score UI Text
@@ -16,29 +16,24 @@ public class FinanceGuy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0; // Disable gravity
-        rb.freezeRotation = true; // Prevent unwanted rotation
         UpdateScoreUI(); // Initialize score display
     }
 
-    void Update()
-    {
-        // Get movement input
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-
-        movement = new Vector2(moveX, moveY).normalized; // Normalize to prevent diagonal speed boost
-    }
-
+    // Listen for player input to move the object: 
     void FixedUpdate()
     {
-        // Apply velocity for movement
-        rb.velocity = movement * moveSpeed;
+        // if you move diagonally (2 inputs) you will go faster
+        // can change this to be the same speed somehow...
+        movement.x = Input.GetAxisRaw ("Horizontal");
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        
+        movement.y = Input.GetAxisRaw ("Vertical");
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
     public void AddScore(int points)
     {
-        score += points;  // Increase the score
+        score += points;  // Increase the score by the points passed
         UpdateScoreUI(); // Update the UI
     }
 
@@ -49,13 +44,13 @@ public class FinanceGuy : MonoBehaviour
             scoreText.text = "Score: " + score;
         }
     }
-
-    // Makes objects with the tag "files" disappear on contact
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("files"))
-        {
+    
+     // Makes objects with the tag "files" disappear on contact
+     // can change files to be tasks later!
+    void OnCollisionEnter2D(Collision2D other){
+        if (other.gameObject.tag == "files"){
             Destroy(other.gameObject);
         }
     }
 }
+
