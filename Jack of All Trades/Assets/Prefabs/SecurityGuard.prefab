@@ -73,12 +73,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 260e4e6a70db1374b959bd1707b4c152, type: 3}
 =======
-=======
->>>>>>> Stashed changes
   m_SortingOrder: 110
   m_Sprite: {fileID: 21300000, guid: 551e17598c7c71b46a3e2189ef074cab, type: 3}
 >>>>>>> Stashed changes
