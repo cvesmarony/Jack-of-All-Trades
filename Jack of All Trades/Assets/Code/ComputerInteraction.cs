@@ -19,7 +19,7 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (taskProgressSlider == null || scoreText == null)
         {
-            Debug.LogError("UI Elements not assigned in the Inspector!");
+            Debug.LogError("FORGOT TO ASSIGN UI IN INSPECTOR!");
             return;
         }
 
@@ -28,7 +28,7 @@ public class ComputerInteraction : MonoBehaviour
             taskProgress += Time.deltaTime;
             taskProgressSlider.value = taskProgress / taskDuration;
 
-            if (taskProgress >= taskDuration)
+            if (taskProgress >= taskDuration) // timingt he space press
             {
                 CompleteTask();
             }
@@ -64,7 +64,7 @@ public class ComputerInteraction : MonoBehaviour
 {
     if (currentComputer != null)
     {
-        // Increment score
+        // add score
         score++;
         scoreText.text = "Score: " + score;
 
@@ -78,11 +78,11 @@ public class ComputerInteraction : MonoBehaviour
         if (completedSprite != null) 
             completedSprite.gameObject.SetActive(true); // Show completed sprite
 
-        // Mark the current computer as completed, so it won't be interacted with again
+        // Mark the current computer as completed, so it cant be interacted with again
         completedComputers.Add(currentComputer);
 
-        // Disable further interaction with this computer
-        currentComputer.GetComponent<Collider2D>().enabled = false; // Disable collider so player can't trigger it again
+        // Disable collider so player can't trigger it again
+        currentComputer.GetComponent<Collider2D>().enabled = false; 
 
         // Reset interaction
         taskProgress = 0f;
