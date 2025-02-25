@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour {
 
       private GameObject player;
+      private GameObject health;
     //   public static int playerHealth = 100;
     //   public int StartPlayerHealth = 100;
     //   public GameObject healthText;
@@ -68,6 +69,10 @@ public class GameHandler : MonoBehaviour {
             tokensTextTemp.text = "Data: " + gotData;
       }
 
+      public void gameOver() {
+            SceneManager.LoadScene("GameOver");
+      }
+
      /* public void playerDies(){
             //player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
             lastLevelDied = sceneName;       //allows replaying the Level where you died
@@ -111,6 +116,6 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void Credits() {
-            SceneManager.LoadScene("Credits");
+            SceneManager.LoadScene("CreditsMenu");
       }
 }
