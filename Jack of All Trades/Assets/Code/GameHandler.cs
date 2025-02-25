@@ -73,6 +73,16 @@ public class GameHandler : MonoBehaviour {
             SceneManager.LoadScene("GameOver");
       }
 
+      public void endWin() {
+            if (gotData >= 4) {
+                  endWin();
+                  return;
+            }
+           SceneManager.LoadScene("EndWin");
+      }
+
+
+
      /* public void playerDies(){
             //player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
             lastLevelDied = sceneName;       //allows replaying the Level where you died
