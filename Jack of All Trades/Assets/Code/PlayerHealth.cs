@@ -46,7 +46,11 @@ public class PlayerHealth : MonoBehaviour
         if (isDead) return; // Prevent multiple death calls
         isDead = true;
         Debug.Log("Player has died!");
-        StartCoroutine(Respawn());
+        //StartCoroutine(Respawn());
+        GameHandler gameHandler = FindObjectOfType<GameHandler>();
+        if (gameHandler) {
+            gameHandler.gameOver(); 
+        }
     }
 
 
@@ -78,6 +82,10 @@ public class PlayerHealth : MonoBehaviour
             healthText.text = "Health: " + currentHealth;
         }
     }
+
+    // public bool IsPlayerDead() {
+    //     return isDead;
+    // }
 
     public void restart(){
         currentHealth = maxHealth;
