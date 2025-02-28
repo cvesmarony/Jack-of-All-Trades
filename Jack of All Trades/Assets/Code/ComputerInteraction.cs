@@ -8,12 +8,20 @@ public class ComputerInteraction : MonoBehaviour
     public Slider taskProgressSlider;
     public Text scoreText;
 
+    public Animator anim;
+
     private float taskDuration = 3f;
     private float taskProgress = 0f;
     private bool isInteracting = false;
     private int score = 0;
     private GameObject currentComputer;
     private HashSet<GameObject> completedComputers = new HashSet<GameObject>();
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
 
     void Update()
     {
@@ -27,6 +35,8 @@ public class ComputerInteraction : MonoBehaviour
         {
             taskProgress += Time.deltaTime;
             taskProgressSlider.value = taskProgress / taskDuration;
+            // play hacking animation
+            anim.SetBool("Hack", true);
 
             if (taskProgress >= taskDuration) // timingt he space press
             {
@@ -37,6 +47,8 @@ public class ComputerInteraction : MonoBehaviour
         {
             taskProgress = 0f;
             taskProgressSlider.value = 0f;
+            // stop hacking animation
+            anim.SetBool("Hack", false);
         }
     }
 
@@ -57,6 +69,8 @@ public class ComputerInteraction : MonoBehaviour
             currentComputer = null;
             taskProgress = 0f;
             taskProgressSlider.value = 0f;
+            // stop hacking animation
+            anim.SetBool("Hack", false);
         }
     }
 
