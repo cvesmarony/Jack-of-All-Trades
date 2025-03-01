@@ -33,7 +33,6 @@ public class RandomMovement : MonoBehaviour
 
     void ChooseNewDirection()
     {
-        // Pick a random direction (normalized for consistent speed)
         float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         moveDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)).normalized;
     }

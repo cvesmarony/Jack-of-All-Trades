@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.Rendering.Universal; // Required for Light2D
+using UnityEngine.Rendering.Universal; 
 
 public class FlashlightFollowMovement : MonoBehaviour
 {
-    public Light2D flashlight;  // Assign this in the Inspector
+    public Light2D flashlight; 
     public float offsetAngle = 0f; // Adjust if needed
 
     private Vector2 lastDirection = Vector2.right; // Default direction
@@ -29,10 +29,9 @@ public class FlashlightFollowMovement : MonoBehaviour
                 lastDirection = moveDirection.normalized;
             }
 
-            // Convert direction to an angle
             float angle = Mathf.Atan2(lastDirection.y, lastDirection.x) * Mathf.Rad2Deg;
 
-            // Apply rotation (with optional offset)
+            // Apply rotation
             flashlight.transform.rotation = Quaternion.Euler(0, 0, angle + offsetAngle);
         }
     }
