@@ -363,7 +363,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ebff2b3ef478e4b804f7d4ddeb4958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlight: {fileID: 0}
-  detectionCollider: {fileID: 0}
+  flashlight: {fileID: 379357474182625445}
+  detectionCollider: {fileID: 7945998425870335683}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1
   damagePerSecond: 5
   damageInterval: 0.1
