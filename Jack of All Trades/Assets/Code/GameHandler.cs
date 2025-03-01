@@ -97,7 +97,7 @@ public class GameHandler : MonoBehaviour {
       }
 */
       public void StartGame() {
-            SceneManager.LoadScene("Office");
+            SceneManager.LoadScene("Office-TasnimEdits");
       }
 
       // Return to MainMenu
