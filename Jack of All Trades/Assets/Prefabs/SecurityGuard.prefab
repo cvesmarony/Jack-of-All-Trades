@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 190156650030123001}
   - component: {fileID: 4136696035716492388}
   - component: {fileID: 2830552780822893873}
-  - component: {fileID: 9081931153000988082}
   m_Layer: 0
   m_Name: SecurityGuard
   m_TagString: Untagged
@@ -161,20 +160,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
   changeDirectionTime: 1
---- !u!114 &9081931153000988082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4194622096290523791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 829b84509a1144439b6fa0b543f2263f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  detectionRadius: 3
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 64
   flashlight: {fileID: 379357474182625445}
-  offsetAngle: 0
+  flashlightOffsetDistance: 0
+  flashlightOffsetAngle: -90
 --- !u!1 &5316866774299463640
 GameObject:
   m_ObjectHideFlags: 0
