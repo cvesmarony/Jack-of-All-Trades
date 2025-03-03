@@ -96,9 +96,13 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    // Restart the game
-    public void RestartGame()
-    {
+    // Starting the game
+    public void StartGame() {
+        SceneManager.LoadScene("TUTORIAL_1"); // Start from Tutorial
+    }
+
+    // Restart the game (if player wants to restart)
+    public void RestartGame() {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         playerHealth = 20;
@@ -128,4 +132,5 @@ public class GameHandler : MonoBehaviour
     {
         SceneManager.LoadScene("CreditsMenu");
     }
+}
 }
