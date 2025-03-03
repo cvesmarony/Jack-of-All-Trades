@@ -425,6 +425,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f5536e2df058d4587db05471fc20a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1581833297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5962322034492340284, guid: 5fc252eeed4ef6547992083d284aa84d, type: 3}
+  m_PrefabInstance: {fileID: 1827858454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581833293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0aa7ffb7763c74c8b35355fefcc93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1827858454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -497,6 +508,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1530515187}
     m_Modifications:
+    - target: {fileID: 1988922723457712530, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6294583
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988922723457712530, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.47505036
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988922723457712530, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6320754
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988922723457712530, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 100a0a42a0409d34fa49ed698e72dc0e, type: 3}
     - target: {fileID: 4813236742658656100, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -504,7 +531,11 @@ PrefabInstance:
     - target: {fileID: 7635731489162900813, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1581833294}
+      objectReference: {fileID: 1581833297}
+    - target: {fileID: 7635731489162900813, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     - target: {fileID: 8077804786985938339, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

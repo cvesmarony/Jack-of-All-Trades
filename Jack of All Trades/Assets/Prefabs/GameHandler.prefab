@@ -74,4 +74,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0aa7ffb7763c74c8b35355fefcc93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
+  pauseMenuUI: {fileID: 4813236742658656100, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
