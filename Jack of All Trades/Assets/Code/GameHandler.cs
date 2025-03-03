@@ -5,140 +5,107 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour {
 
-      private GameObject player;
-      private GameObject health;
-    //   public static int playerHealth = 100;
-    //   public int StartPlayerHealth = 100;
-    //   public GameObject healthText;
+    private GameObject player;
+    private GameObject healthText;
+    
+    public static int playerHealth = 20; // Starting health
+    public static int gotData = 0; // Data collected by the player
+    public GameObject DataText; // Display for data collection
+    public GameObject HealthText; // Display for health
+    public static bool stairCaseUnlocked = false;
 
-      public static int gotData = 0;
-      public GameObject DataText;
+    private string sceneName;
+    public static string lastLevelDied; // Allows replaying the Level where the player died
 
-      public bool isDefending = false;
+    void Start() {
+        player = GameObject.FindWithTag("Player");
+        sceneName = SceneManager.GetActiveScene().name;
 
-      public static bool stairCaseUnlocked = false;
-      //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
+        // Display initial stats
+        updateStatsDisplay();
+    }
 
-      private string sceneName;
-      public static string lastLevelDied;  //allows replaying the Level where you died
+    // Update health and data display
+    public void updateStatsDisplay() {
+        Text tokensTextTemp = DataText.GetComponent<Text>();
+        tokensTextTemp.text = "Data: " + gotData;
 
-      void Start(){
-            player = GameObject.FindWithTag("Player");
-            sceneName = SceneManager.GetActiveScene().name;
-            //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
-                //   playerHealth = StartPlayerHealth;
-            //}
+        Text healthTextTemp = HealthText.GetComponent<Text>();
+        healthTextTemp.text = "Health: " + playerHealth;
+    }
+
+    // Deduct health when player is hit by security guard flashlight
+    public void playerGetHit(int damage) {
+        playerHealth -= damage;
+        if (playerHealth <= 0) {
+            playerHealth = 0;
             updateStatsDisplay();
-      }
-
-      public void playerGetTokens(int newTokens){
-            gotData += newTokens;
+            gameOver();
+        } else {
             updateStatsDisplay();
-      }
+        }
+    }
 
-      /*public void playerGetHit(int damage){
-           if (isDefending == false){
-                  playerHealth -= damage;
-                  if (playerHealth >=0){
-                        updateStatsDisplay();
-                  }
-                  if (damage > 0){
-                        //play GetHit animation:
-                        //player.GetComponent<PlayerHurt>().playerHit();
-                  }
-            }
+    // Player interaction with NPC (data transfer)
+    public void playerGetTokens(int newTokens) {
+        gotData += newTokens;
+        updateStatsDisplay();
+    }
 
-           if (playerHealth > StartPlayerHealth){
-                  playerHealth = StartPlayerHealth;
-                  updateStatsDisplay();
-            }
+    // Transition to the next level when the player interacts with the NPC
+    public void CompleteLevel() {
+        Debug.Log("Level Completed!");
 
-           if (playerHealth <= 0){
-                  playerHealth = 0;
-                  updateStatsDisplay();
-                  playerDies();
-            }
-      }
-*/
-      public void updateStatsDisplay(){
-            // Text healthTextTemp = healthText.GetComponent<Text>();
-            // healthTextTemp.text = "HEALTH: " + playerHealth;
+        // Reset score (data) after completing the level
+        gotData = 0;
 
-            Text tokensTextTemp = DataText.GetComponent<Text>();
-            tokensTextTemp.text = "Data: " + gotData;
-      }
+        // Load the next scene
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-      public void gameOver() {
-            SceneManager.LoadScene("GameOver");
-      }
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) {
+            SceneManager.LoadScene(nextSceneIndex); // Load next level
+        } else {
+            SceneManager.LoadScene("EndWin"); // If it's the last level, go to EndWin
+        }
+    }
 
-      public void endWin() {
-            if (gotData >= 4) {
-                  CompleteLevel();  // Fix infinite recursion issue
-                  return;
-            }
-           SceneManager.LoadScene("EndWin");
-      }
+    // Game Over logic
+    public void gameOver() {
+        SceneManager.LoadScene("GameOver");
+    }
 
-      public void CompleteLevel() {
-            Debug.Log("Level Completed!");
+    // Starting the game
+    public void StartGame() {
+        SceneManager.LoadScene("Level1"); // Start from Level 1
+    }
 
-            // Reset score or data collection if needed
-            gotData = 0;
-            
-            // Load the next scene
-            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+    // Restart the game (if player wants to restart)
+    public void RestartGame() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+        playerHealth = 20; // Reset player health to default
+        gotData = 0; // Reset data to default
+        updateStatsDisplay();
+    }
 
-            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) {
-                  SceneManager.LoadScene(nextSceneIndex); // Load next level
-            } else {
-                  SceneManager.LoadScene("EndWin"); // If it's the last level, go to EndWin
-            }
-      }
+    // Quit game
+    public void QuitGame() {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+    }
 
-     /* public void playerDies(){
-            //player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
-            lastLevelDied = sceneName;       //allows replaying the Level where you died
-            StartCoroutine(DeathPause());
-      }
+    // Access the last level where the player died
+    public void ReplayLastLevel() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(lastLevelDied);
+        updateStatsDisplay();
+    }
 
-      IEnumerator DeathPause(){
-            //player.GetComponent<PlayerMove>().isAlive = false;
-            //player.GetComponent<PlayerJump>().isAlive = false;
-            yield return new WaitForSeconds(1.0f);
-            SceneManager.LoadScene("EndLose");
-      }
-*/
-      public void StartGame() {
-            SceneManager.LoadScene("Office-TasnimEdits");
-      }
-
-      // Return to MainMenu
-      public void RestartGame() {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene("MainMenu");
-             // Reset all static variables here, for new games:
-            GetComponent<PlayerHealth>().restart();
-      }
-
-      // Replay the Level where you died
-      public void ReplayLastLevel() {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(lastLevelDied);
-             // Reset all static variables here, for new games:
-            // playerHealth = StartPlayerHealth;
-            GetComponent<PlayerHealth>().restart();
-      }
-
-      public void QuitGame() {
-                #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-                #else
-                Application.Quit();
-                #endif
-      }
-
-      public void Credits() {
-            SceneManager.LoadScene("CreditsMenu");
-      }
+    // Transition to Credits scene
+    public void Credits() {
+        SceneManager.LoadScene("CreditsMenu");
+    }
 }
