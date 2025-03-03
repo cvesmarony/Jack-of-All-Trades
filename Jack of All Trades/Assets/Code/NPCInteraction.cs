@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI; // For UI Slider
+using UnityEngine.SceneManagement;
 
 public class NPCInteraction : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class NPCInteraction : MonoBehaviour
 
     public delegate void LevelComplete(); 
     public static event LevelComplete OnLevelComplete; // Event for level completion
+
+    private int currentSceneIndex;
+
+    void Start()
+    {
+        OnLevelComplete += LoadNextLevel;
+    }
+
 
     void Update()
     {
@@ -68,5 +77,12 @@ public class NPCInteraction : MonoBehaviour
             currentInteractionTime = 0f;
             progressSlider.value = 0; // Reset progress when leaving
         }
+    }
+
+    void LoadNextLevel()
+    {
+        currentSceneIndex++;
+    
+        SceneManager.LoadScene("LEVEL_" + currentSceneIndex); 
     }
 }
