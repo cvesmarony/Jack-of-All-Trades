@@ -315,7 +315,7 @@ Transform:
   - {fileID: 7920163359890730040}
   - {fileID: 7105895023382122178}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8939825036935386566
 Rigidbody2D:
@@ -357,15 +357,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  changeDirectionTime: 1
   detectionRadius: 3
   detectionLayer:
     serializedVersion: 2
     m_Bits: 64
+  cubicleLayer:
+    serializedVersion: 2
+    m_Bits: 4
   flashlight: {fileID: 3085240414119851832}
   flashlightOffsetDistance: 0
   flashlightOffsetAngle: -90
-  damageAmount: 5
+  randomChangeInterval: 1.5
 --- !u!114 &5626476626524491407
 MonoBehaviour:
   m_ObjectHideFlags: 0
