@@ -80,7 +80,7 @@ public class ComputerInteraction : MonoBehaviour
     {
         // add score
         score++;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Data: " + score;
 
         // Get the child objects with the sprite renderers
         Transform incompleteSprite = currentComputer.transform.Find("IncompleteSprite");

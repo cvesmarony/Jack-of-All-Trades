@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -75,13 +74,27 @@ public class GameHandler : MonoBehaviour {
 
       public void endWin() {
             if (gotData >= 4) {
-                  endWin();
+                  CompleteLevel();  // Fix infinite recursion issue
                   return;
             }
            SceneManager.LoadScene("EndWin");
       }
 
+      public void CompleteLevel() {
+            Debug.Log("Level Completed!");
 
+            // Reset score or data collection if needed
+            gotData = 0;
+            
+            // Load the next scene
+            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) {
+                  SceneManager.LoadScene(nextSceneIndex); // Load next level
+            } else {
+                  SceneManager.LoadScene("EndWin"); // If it's the last level, go to EndWin
+            }
+      }
 
      /* public void playerDies(){
             //player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
