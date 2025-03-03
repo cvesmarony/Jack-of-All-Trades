@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class NPCInteraction : MonoBehaviour
 {
-    public int score = 100; // Example starting score
+    public int score = 100; 
     public int requiredScore = 50; // Score needed to interact
     public Slider progressSlider; // UI Slider to show progress
     public float interactionTime = 3f; // Time needed for full interaction
