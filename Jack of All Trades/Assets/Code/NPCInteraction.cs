@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class NPCInteraction : MonoBehaviour
 {
-    public int score = 100; 
-    public int requiredScore = 50; // Score needed to interact
+    //public int score = GameHandler.gotData; 
+    public int requiredScore = 2; // Score needed to interact
     public Slider progressSlider; // UI Slider to show progress
     public float interactionTime = 3f; // Time needed for full interaction
 
@@ -26,8 +26,11 @@ public class NPCInteraction : MonoBehaviour
 
     void Update()
     {
+        if(playerInRange) {
+            Debug.Log("Player in range. the current data is: " + GameHandler.gotData);
+        }
         // Only interact if the player is in range and score meets the requirement
-        if (playerInRange && score >= requiredScore && Input.GetKey(KeyCode.Space))
+        if (playerInRange && GameHandler.gotData >= requiredScore && Input.GetKey(KeyCode.Space))
         {
             isInteracting = true;
             currentInteractionTime += Time.deltaTime;
@@ -36,8 +39,8 @@ public class NPCInteraction : MonoBehaviour
             // If interaction completes
             if (currentInteractionTime >= interactionTime)
             {
-                score = 0; // Set score to 0
-                Debug.Log("Interaction Complete! Score is now: " + score);
+                GameHandler.gotData = 0; // Set score to 0
+                Debug.Log("Interaction Complete!");
 
                 // Signal end of level
                 if (OnLevelComplete != null)
