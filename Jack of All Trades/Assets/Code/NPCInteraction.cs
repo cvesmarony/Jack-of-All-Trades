@@ -16,7 +16,7 @@ public class NPCInteraction : MonoBehaviour
     public delegate void LevelComplete(); 
     public static event LevelComplete OnLevelComplete; // Event for level completion
 
-    private int currentSceneIndex;
+    public static int currentSceneIndex = 1;
 
     void Start()
     {
@@ -81,6 +81,7 @@ public class NPCInteraction : MonoBehaviour
 
     void LoadNextLevel()
     {
+        Debug.Log("Current Level Index: " + currentSceneIndex);
         currentSceneIndex++;
     
         SceneManager.LoadScene("LEVEL_" + currentSceneIndex); 

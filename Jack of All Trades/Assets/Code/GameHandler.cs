@@ -60,6 +60,7 @@ public class GameHandler : MonoBehaviour {
         gotData = 0;
 
         // Load the next scene
+        /*
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) {
@@ -67,6 +68,7 @@ public class GameHandler : MonoBehaviour {
         } else {
             SceneManager.LoadScene("EndWin"); // If it's the last level, go to EndWin
         }
+        */
     }
 
     // Game Over logic
