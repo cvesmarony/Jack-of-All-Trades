@@ -3,95 +3,112 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameHandler : MonoBehaviour {
+public class GameHandler : MonoBehaviour
+{
+    public static GameHandler instance; // Singleton pattern for easy access
 
-    private GameObject player;
-    private GameObject healthText;
-    
     public static int playerHealth = 20; // Starting health
     public static int gotData = 0; // Data collected by the player
     public GameObject DataText; // Display for data collection
-    public GameObject HealthText; // Display for health
+    public GameObject HealthText; // Display for health UI
+
     public static bool stairCaseUnlocked = false;
+    public static string lastLevelDied; // Stores the last level where the player died
 
-    private string sceneName;
-    public static string lastLevelDied; // Allows replaying the Level where the player died
+    private bool isGameOver = false; // Prevents multiple game over calls
 
-    void Start() {
-        player = GameObject.FindWithTag("Player");
-        sceneName = SceneManager.GetActiveScene().name;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-        // Display initial stats
+    void Start()
+    {
+        if (HealthText == null)
+        {
+            Debug.LogError("HealthText UI not assigned in the Inspector!");
+        }
+
+        if (DataText == null)
+        {
+            Debug.LogError("DataText UI not assigned in the Inspector!");
+        }
+
         updateStatsDisplay();
     }
 
     // Update health and data display
-    public void updateStatsDisplay() {
-        Text tokensTextTemp = DataText.GetComponent<Text>();
-        tokensTextTemp.text = "Data: " + gotData;
+    public void updateStatsDisplay()
+    {
+        if (DataText != null)
+        {
+            Text tokensTextTemp = DataText.GetComponent<Text>();
+            tokensTextTemp.text = "Data: " + gotData;
+        }
 
-        Text healthTextTemp = HealthText.GetComponent<Text>();
-        healthTextTemp.text = "Health: " + playerHealth;
+        if (HealthText != null)
+        {
+            Text healthTextTemp = HealthText.GetComponent<Text>();
+            healthTextTemp.text = "Health: " + playerHealth;
+        }
     }
 
     // Deduct health when player is hit by security guard flashlight
-    public void playerGetHit(int damage) {
+    public void playerGetHit(int damage)
+    {
+        if (isGameOver) return; // Prevent health from going below 0 after game over
+
         playerHealth -= damage;
-        if (playerHealth <= 0) {
+        Debug.Log($"Player took {damage} damage. New Health: {playerHealth}");
+
+        if (playerHealth <= 0)
+        {
             playerHealth = 0;
+            isGameOver = true;
             updateStatsDisplay();
             gameOver();
-        } else {
+        }
+        else
+        {
             updateStatsDisplay();
         }
     }
 
     // Player interaction with NPC (data transfer)
-    public void playerGetTokens(int newTokens) {
+    public void playerGetTokens(int newTokens)
+    {
         gotData += newTokens;
         updateStatsDisplay();
     }
 
-    // Transition to the next level when the player interacts with the NPC
-    public void CompleteLevel() {
-        Debug.Log("Level Completed!");
-
-        // Reset score (data) after completing the level
-        gotData = 0;
-
-        // Load the next scene
-        /*
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) {
-            SceneManager.LoadScene(nextSceneIndex); // Load next level
-        } else {
-            SceneManager.LoadScene("EndWin"); // If it's the last level, go to EndWin
-        }
-        */
-    }
-
-    // Game Over logic
-    public void gameOver() {
+    // Handles Game Over
+    public void gameOver()
+    {
+        if (isGameOver) return; // Prevent multiple calls
+        Debug.Log("Game Over! Restarting...");
         SceneManager.LoadScene("GameOver");
     }
 
-    // Starting the game
-    public void StartGame() {
-        SceneManager.LoadScene("TUTORIAL_1"); // Start from Level 1
-    }
-
-    // Restart the game (if player wants to restart)
-    public void RestartGame() {
+    // Restart the game
+    public void RestartGame()
+    {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
-        playerHealth = 20; // Reset player health to default
-        gotData = 0; // Reset data to default
-        updateStatsDisplay();
+        playerHealth = 20;
+        gotData = 0;
+        isGameOver = false;
     }
 
     // Quit game
-    public void QuitGame() {
+    public void QuitGame()
+    {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #else
@@ -99,15 +116,16 @@ public class GameHandler : MonoBehaviour {
         #endif
     }
 
-    // Access the last level where the player died
-    public void ReplayLastLevel() {
+    // Replay the last level
+    public void ReplayLastLevel()
+    {
         Time.timeScale = 1f;
         SceneManager.LoadScene(lastLevelDied);
-        updateStatsDisplay();
     }
 
-    // Transition to Credits scene
-    public void Credits() {
+    // Transition to Credits
+    public void Credits()
+    {
         SceneManager.LoadScene("CreditsMenu");
     }
 }
