@@ -78,7 +78,7 @@ public class GameHandler : MonoBehaviour {
 
     // Starting the game
     public void StartGame() {
-        SceneManager.LoadScene("TUTORIAL_1"); // Start from Level 1
+        SceneManager.LoadScene("TUTORIAL_1"); // Start from Tutorial
     }
 
     // Restart the game (if player wants to restart)

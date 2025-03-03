@@ -2293,6 +2293,7 @@ GameObject:
   - component: {fileID: 628078034}
   - component: {fileID: 628078036}
   - component: {fileID: 628078035}
+  - component: {fileID: 628078037}
   m_Layer: 5
   m_Name: hacker_portrait
   m_TagString: Untagged
@@ -2317,7 +2318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -424, y: -129}
+  m_AnchoredPosition: {x: -459, y: -129}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &628078035
@@ -2358,6 +2359,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628078033}
   m_CullTransparentMesh: 1
+--- !u!95 &628078037
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628078033}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24e36c0746768f7449c4364c71fab8fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &642720007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3034,171 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!43 &1125568188
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 42
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 16
+    localAABB:
+      m_Center: {x: 0, y: 0.000000029802322, z: 0}
+      m_Extent: {x: 0.91428566, y: 0.9142858, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 16
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 704
+    _typelessdata: a00e6a3fa10e6abf000000000000803f000000800000008000000080a00e6a3fa10e6abfa00e6a3fa10e6abfa00e6a3fa20e6a3f00000000000000800000803f0000008000000080a00e6a3fa20e6a3fa00e6a3fa20e6a3fa00e6a3f00000033000000000000803f000000800000008000000080a00e6a3fa20e6a3fa00e6a3fa10e6abf00000000a10e6abf0000000000000080000080bf0000000000000080a00e6a3fa10e6abfa00e6abfa10e6abf00000000a20e6a3f00000000000000800000803f0000008000000080a00e6abfa20e6a3fa00e6a3fa20e6a3fa00e6abfa10e6abf0000000000000080000080bf0000000000000080a00e6abfa10e6abfa00e6abfa10e6abfa00e6abf0000003300000000000080bf000000800000008000000080a00e6abfa10e6abfa00e6abfa20e6a3fa00e6abfa20e6a3f00000000000080bf000000800000008000000080a00e6abfa20e6a3fa00e6abfa20e6a3fa00e6a3f00000033000000000000803f000000800000008000000080a00e6a3fa20e6a3fa00e6a3fa10e6abfa00e6a3fa10e6abf0000000000000080000080bf0000000000000080a00e6a3fa10e6abfa00e6a3fa10e6abfa00e6a3fa20e6a3f000000000000803f000000800000008000000080a00e6a3fa20e6a3fa00e6a3fa20e6a3f00000000a20e6a3f00000000000000800000803f0000008000000080a00e6abfa20e6a3fa00e6a3fa20e6a3f00000000a10e6abf0000000000000080000080bf0000000000000080a00e6a3fa10e6abfa00e6abfa10e6abfa00e6abfa20e6a3f00000000000000800000803f0000008000000080a00e6abfa20e6a3fa00e6abfa20e6a3fa00e6abfa10e6abf00000000000080bf000000800000008000000080a00e6abfa10e6abfa00e6abfa10e6abfa00e6abf0000003300000000000080bf000000800000008000000080a00e6abfa10e6abfa00e6abfa20e6a3f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.000000029802322, z: 0}
+    m_Extent: {x: 0.91428566, y: 0.9142858, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!224 &1156325585 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7724602703460253396, guid: 3eb8d1d7ede47df4aa06e836e84f8656, type: 3}
@@ -3280,171 +3467,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1825812636}
   m_SourcePrefab: {fileID: 100100000, guid: a5e464b4b94bf4eb5a7ab81e6f9be4a3, type: 3}
---- !u!43 &1640238946
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0, y: 0.000000029802322, z: 0}
-      m_Extent: {x: 0.91428566, y: 0.9142858, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: a00e6a3fa10e6abf000000000000803f000000800000008000000080a00e6a3fa10e6abfa00e6a3fa10e6abfa00e6a3fa20e6a3f00000000000000800000803f0000008000000080a00e6a3fa20e6a3fa00e6a3fa20e6a3fa00e6a3f00000033000000000000803f000000800000008000000080a00e6a3fa20e6a3fa00e6a3fa10e6abf00000000a10e6abf0000000000000080000080bf0000000000000080a00e6a3fa10e6abfa00e6abfa10e6abf00000000a20e6a3f00000000000000800000803f0000008000000080a00e6abfa20e6a3fa00e6a3fa20e6a3fa00e6abfa10e6abf0000000000000080000080bf0000000000000080a00e6abfa10e6abfa00e6abfa10e6abfa00e6abf0000003300000000000080bf000000800000008000000080a00e6abfa10e6abfa00e6abfa20e6a3fa00e6abfa20e6a3f00000000000080bf000000800000008000000080a00e6abfa20e6a3fa00e6abfa20e6a3fa00e6a3f00000033000000000000803f000000800000008000000080a00e6a3fa20e6a3fa00e6a3fa10e6abfa00e6a3fa10e6abf0000000000000080000080bf0000000000000080a00e6a3fa10e6abfa00e6a3fa10e6abfa00e6a3fa20e6a3f000000000000803f000000800000008000000080a00e6a3fa20e6a3fa00e6a3fa20e6a3f00000000a20e6a3f00000000000000800000803f0000008000000080a00e6abfa20e6a3fa00e6a3fa20e6a3f00000000a10e6abf0000000000000080000080bf0000000000000080a00e6a3fa10e6abfa00e6abfa10e6abfa00e6abfa20e6a3f00000000000000800000803f0000008000000080a00e6abfa20e6a3fa00e6abfa20e6a3fa00e6abfa10e6abf00000000000080bf000000800000008000000080a00e6abfa10e6abfa00e6abfa10e6abfa00e6abf0000003300000000000080bf000000800000008000000080a00e6abfa10e6abfa00e6abfa20e6a3f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.000000029802322, z: 0}
-    m_Extent: {x: 0.91428566, y: 0.9142858, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1700916349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,10 +3860,11 @@ MonoBehaviour:
   - 'Here are the mission paramters: infiltrate, extract the data, and evade security.'
   - "use 'wasd' or arrow keys to move. Cubicles block sightlines\u2014use them to
     your advantage."
-  - the target data are on the lit-up computers. Press 'SPACE' to hack. The bar on
-    top of your screen indicates hacking progress.
-  - Your health drops every time security spots you. If it hits zero, mission failure.
-  - Hand me the file by pressing 'SPACE' after you completed all the data extractions.
+  - the target data are on the lit-up computers. Press 'SPACE' to hack and extract.
+    The bar on top of your screen indicates hacking progress.
+  - Security will track your movements. Your health drops every time security spots
+    you. If it hits zero, mission failure.
+  - Hand me the file by pressing 'SPACE' after you completed the data extractions.
   - Copy? Stay sharp, stay safe. and remember, don't get caught.
   textSpeed: 0.04
   dialogueCompleted: 0
