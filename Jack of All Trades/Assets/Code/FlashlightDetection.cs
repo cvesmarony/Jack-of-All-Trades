@@ -33,12 +33,27 @@ public class FlashlightDetection : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D other)
+{
+    if (other.CompareTag("Player"))
     {
-        if (other.CompareTag("Player"))
+        // Perform a raycast from flashlight to the player
+        Vector2 directionToPlayer = (other.transform.position - flashlight.transform.position).normalized;
+        float distanceToPlayer = Vector2.Distance(flashlight.transform.position, other.transform.position);
+
+        RaycastHit2D hit = Physics2D.Raycast(flashlight.transform.position, directionToPlayer, distanceToPlayer);
+        
+        // Only damage the player if there are no obstacles in the way
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
             playerInLight = true;
         }
+        else
+        {
+            playerInLight = false;
+        }
     }
+}
+
 
     private void OnTriggerExit2D(Collider2D other)
     {
