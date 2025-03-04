@@ -192,6 +192,12 @@ MonoBehaviour:
   detectionCollider: {fileID: 2042714093229285910}
   damagePerHit: 1
   damageInterval: 0.3
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  cubicleLayer:
+    serializedVersion: 2
+    m_Bits: 4
 --- !u!1 &3708786261279096623
 GameObject:
   m_ObjectHideFlags: 0
