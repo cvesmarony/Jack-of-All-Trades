@@ -183,18 +183,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2400951339634394115}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49ebff2b3ef478e4b804f7d4ddeb4958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flashlight: {fileID: 3085240414119851832}
   detectionCollider: {fileID: 2042714093229285910}
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  damagePerSecond: 5
-  damageInterval: 0.1
+  damagePerHit: 1
+  damageInterval: 0.3
 --- !u!1 &3708786261279096623
 GameObject:
   m_ObjectHideFlags: 0
