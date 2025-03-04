@@ -83,23 +83,27 @@ public class NPCInteraction : MonoBehaviour
     }
 
     void LoadNextLevel()
+{
+    string currentSceneName = SceneManager.GetActiveScene().name;
+    
+    // Extract the level number from the scene name
+    if (currentSceneName.StartsWith("LEVEL_"))
     {
-        Debug.Log("Current Level Index: " + currentLevelIndex);
-        currentLevelIndex++;
-        
-        if(currentLevelIndex > 4) {
-            SceneManager.LoadScene("EndWin");
-            return;
-        } 
-        else 
-        {
-            Debug.Log("Next Level Index: " + currentLevelIndex);
-            SceneManager.LoadScene("LEVEL_" + currentLevelIndex); 
-        }
+        int.TryParse(currentSceneName.Substring(6), out currentLevelIndex); 
     }
 
-    void OnDestroy()
+    Debug.Log("Current Level: " + currentLevelIndex);
+
+    if (currentLevelIndex >= 4)  // If at Level 4, load EndWin
     {
-        OnLevelComplete -= LoadNextLevel; 
+        SceneManager.LoadScene("EndWin");
     }
+    else 
+    {
+        currentLevelIndex++; // Move to next level
+        SceneManager.LoadScene("LEVEL_" + currentLevelIndex);
+        Debug.Log("Loading LEVEL_" + currentLevelIndex);
+    }
+}
+
 }
