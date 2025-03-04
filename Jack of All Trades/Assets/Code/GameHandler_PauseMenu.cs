@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameHandler_PauseMenu : MonoBehaviour {
 
@@ -30,17 +31,27 @@ public class GameHandler_PauseMenu : MonoBehaviour {
     }
 
     public void Pause(){
-        if (!GameisPaused){
-            pauseMenuUI.SetActive(true);
-            Time.timeScale = 0f;
-            GameisPaused = true;}
-        else{ Resume ();}
-            //NOTE: This added conditional is for a pause button
-    }
+    Debug.Log("Pausing game...");
+    
+    Time.timeScale = 0f;
+    GameisPaused = true;
+
+    // Load the pause menu scene
+    SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive); // Additively loads the pause menu
+}
+
 
     public void Resume(){
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameisPaused = false;
-    }
+    Debug.Log("Resume function called. Game is now resuming.");
+    
+    Time.timeScale = 1f;
+    GameisPaused = false;
+
+    // Unload the pause menu scene
+    SceneManager.UnloadSceneAsync("PauseMenu"); 
+
+    Debug.Log("Pause menu scene unloaded.");
+}
+
+
 }
