@@ -260,11 +260,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1 &340459890 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4813236742658656100, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
-  m_PrefabInstance: {fileID: 6252337596804079931}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &340459893 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8077804786985938339, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
@@ -458,7 +453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0aa7ffb7763c74c8b35355fefcc93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 340459890}
 --- !u!114 &1581833296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3898668129376534645, guid: 5fc252eeed4ef6547992083d284aa84d, type: 3}
@@ -576,6 +570,10 @@ PrefabInstance:
     - target: {fileID: 4813236742658656100, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813236742658656100, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7635731489162900813, guid: 3994a8cdd6f7ca748b4cc908c70cc3f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
