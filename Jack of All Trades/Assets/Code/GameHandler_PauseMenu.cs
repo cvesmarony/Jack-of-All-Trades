@@ -1,57 +1,62 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
-public class GameHandler_PauseMenu : MonoBehaviour {
-
+public class GameHandler_PauseMenu : MonoBehaviour
+{
     public static bool GameisPaused = false;
-    public GameObject pauseMenuUI;
+    private string pauseSceneName = "PauseMenu"; // Make sure this matches the actual scene name
 
-    void Awake(){
-        pauseMenuUI.SetActive(true); // so slider can be set
-    }
-
-    void Start(){
-        pauseMenuUI.SetActive(false);
-        GameisPaused = false;
-    }
-
-    void Update(){
-        if (Input.GetKeyDown(KeyCode.Escape)){
-            if (GameisPaused){
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameisPaused)
+            {
                 Resume();
             }
-            else{
+            else
+            {
                 Pause();
             }
         }
     }
 
-    public void Pause(){
-    Debug.Log("Pausing game...");
-    
-    Time.timeScale = 0f;
-    GameisPaused = true;
+    public void Pause()
+    {
+        Debug.Log("Pausing game...");
 
-    // Load the pause menu scene
-    SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive); // Additively loads the pause menu
-}
+        Time.timeScale = 0f;
+        GameisPaused = true;
 
+        // Load the pause menu scene additively
+        SceneManager.LoadScene(pauseSceneName, LoadSceneMode.Additive);
+    }
 
-    public void Resume(){
-    Debug.Log("Resume function called. Game is now resuming.");
-    
-    Time.timeScale = 1f;
-    GameisPaused = false;
+    public void Resume()
+    {
+        Debug.Log("Resuming game...");
 
-    // Unload the pause menu scene
-    SceneManager.UnloadSceneAsync("PauseMenu"); 
+        Time.timeScale = 1f;
+        GameisPaused = false;
 
-    Debug.Log("Pause menu scene unloaded.");
-}
+        // Unload the pause menu scene
+        StartCoroutine(UnloadPauseScene());
+    }
 
+    private IEnumerator UnloadPauseScene()
+    {
+        yield return null; // Wait one frame to avoid conflicts
 
+        if (SceneManager.GetSceneByName(pauseSceneName).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(pauseSceneName);
+            Debug.Log("Pause menu scene unloaded.");
+        }
+        else
+        {
+            Debug.LogWarning("Pause menu scene was not loaded.");
+        }
+    }
 }
