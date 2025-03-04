@@ -5,13 +5,13 @@ public class FlashlightDetection : MonoBehaviour
 {
     public Light2D flashlight; // Assign in Inspector
     public CapsuleCollider2D detectionCollider; // Assign in Inspector
-    public int damagePerSecond = 10;
-    public float damageInterval = 0.1f; // Damage every 0.2 seconds
+    public int damagePerHit = 1; // Damage per hit
+    public float damageInterval = 0.3f; // Time between damage ticks
 
     private float damageTimer = 0f;
     private bool playerInLight = false;
 
-    void Update()
+    void FixedUpdate()
     {
         // Sync collider position and rotation with the flashlight
         if (flashlight != null && detectionCollider != null)
@@ -20,18 +20,14 @@ public class FlashlightDetection : MonoBehaviour
             detectionCollider.transform.rotation = flashlight.transform.rotation;
         }
 
-        // Apply damage at set intervals
-        if (playerInLight)
+        // Damage the player at a steady rate
+        if (playerInLight && GameHandler.instance != null)
         {
-            damageTimer += Time.deltaTime;
-            if (damageTimer >= damageInterval)
+            damageTimer += Time.fixedDeltaTime;
+            if (damageTimer >= damageInterval) // Apply damage every 0.5s
             {
-                if (GameHandler.instance != null) 
-                {
-                    int damageAmount = Mathf.CeilToInt(damagePerSecond * damageInterval);
-                    GameHandler.instance.playerGetHit(damageAmount);
-                }
-                damageTimer = 0f;
+                GameHandler.instance.playerGetHit(damagePerHit);
+                damageTimer = 0f; // Reset timer
             }
         }
     }
